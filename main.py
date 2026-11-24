@@ -13,6 +13,8 @@ MAX_CHARS = 200
 def render():
     if not 1 <= len(LINE) <= MAX_CHARS:
         raise ValueError("confession line outside the 1-200 character gate")
+    if not LINE.strip():
+        raise ValueError("confession line must not be only whitespace")
     if LINE.strip() != LINE or "\n" in LINE:
         raise ValueError("confession line must be a single line with no padding")
     return LINE
